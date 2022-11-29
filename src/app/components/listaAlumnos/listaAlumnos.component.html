@@ -1,0 +1,13 @@
+<ul class="list-group">
+  <li
+    *ngFor="let alumno of alumnos"
+    [ngClass]="
+      alumno.Deuda > 0
+        ? 'list-group-item list-group-item-danger'
+        : 'list-group-item list-group-item-success '
+    "
+  >
+    Nombe: {{ alumno.Nombre }} Apellido: {{ alumno.Apellido }} Edad:
+    {{ alumno.Edad }} - Deuda: {{ alumno.Deuda | currency }}
+  </li>
+</ul>
