@@ -1,0 +1,86 @@
+<div class="container bg-light bg-opacity-75 p-2 w-50">
+  <div class="d-flex flex-column align-items-center border border-success">
+    <h3 class="mb-3">Registrase</h3>
+    <form
+      class="formControl col-8 p-3 m-3"
+      autocomplete="off"
+      [formGroup]="registerForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <label for="firstName" class="form label">Nombre</label>
+      <input
+        [formControl]="firstNameControl"
+        type="text"
+        class="form-control"
+        name="firstName"
+        autocomplete="nope"
+      />
+      <app-error-helper
+        [ngClass]="firstNameControl.value !== '' ? '' : 'd-none'"
+        [control]="firstNameControl"
+      ></app-error-helper>
+
+      <label for="lastName" class="form label mt-2">Apellido</label>
+      <input
+        [formControl]="lastNameControl"
+        type="text"
+        class="form-control"
+        name="lastName"
+        autocomplete="nope"
+      />
+
+      <app-error-helper
+        [ngClass]="lastNameControl.value !== '' ? '' : 'd-none'"
+        [control]="lastNameControl"
+      ></app-error-helper>
+
+      <label for="user" class="form label mt-2">Email</label>
+      <input
+        [formControl]="emailControl"
+        type="email"
+        class="form-control"
+        name="email"
+        autocomplete="nope"
+      />
+      <app-error-helper
+        [ngClass]="emailControl.value !== '' ? '' : 'd-none'"
+        [control]="emailControl"
+      ></app-error-helper>
+
+      <div class="d-flex justify-content-between">
+        <div class="d-flex flex-column">
+          <label for="password" class="form label mt-2">Contraseña</label>
+          <input
+            [formControl]="passwordControl"
+            type="password"
+            class="form-control"
+            name="password"
+            autocomplete="off"
+          />
+          <app-error-helper
+            [ngClass]="passwordControl.value !== '' ? '' : 'd-none'"
+            [control]="passwordControl"
+          ></app-error-helper>
+        </div>
+        <div class="d-flex flex-column">
+          <label for="password2" class="form label mt-2"
+            >Repetir Contraseña</label
+          >
+          <input
+            [formControl]="password2Control"
+            type="password"
+            class="form-control"
+            name="password2"
+            autocomplete="off"
+          />
+          <app-error-helper
+            [ngClass]="password2Control.value !== '' ? '' : 'd-none'"
+            [control]="password2Control"
+          ></app-error-helper>
+        </div>
+      </div>
+      <button class="btn form-control mt-5 btn-success">Registrarse</button>
+    </form>
+  </div>
+  <div class="container"></div>
+</div>

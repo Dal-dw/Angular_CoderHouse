@@ -1,0 +1,30 @@
+<div class="form-text">
+  <div *ngFor="let error of control?.errors | keyvalue">
+    <div [ngSwitch]="error.key">
+      <div *ngSwitchCase="'required'">
+        <small class="text-danger">Este campo es requerido.</small>
+      </div>
+      <div *ngSwitchCase="'minlength'">
+        <small class="text-danger"
+          >Debe tener al menos {{ error.value.requiredLength }} caracteres.
+        </small>
+      </div>
+      <div *ngSwitchCase="'email'">
+        <small class="text-danger"
+          >Debe ser una dirección de correo válida.
+        </small>
+      </div>
+      <div *ngSwitchCase="'pattern'">
+        <small class="text-danger">Solo puede contener letras. </small>
+      </div>
+      <div *ngSwitchCase="'permittedLastname'">
+        <!-- Esta es la validacion personalizada -->
+        <small class="text-danger"
+          >Solo se permiten las familias "López", "Gómez" o "Pérez". (respetar
+          acentos)
+        </small>
+      </div>
+      <div *ngSwitchDefault>Error</div>
+    </div>
+  </div>
+</div>
